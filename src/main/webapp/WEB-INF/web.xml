@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
   <display-name>JavaWeb-20220418</display-name>
+  
+  <session-config>
+  	<session-timeout>1</session-timeout>
+  </session-config>
+  
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>
@@ -21,5 +26,37 @@
   	<servlet-name>TodayServlet</servlet-name>
   	<url-pattern>/servlet/TodayServlet</url-pattern>
   </servlet-mapping>
+  
+  <!-- 定義過濾器 -->
+  <filter>
+  	<filter-name>AreaFilterA</filter-name>
+  	<filter-class>filter.AreaFilterA</filter-class>
+  </filter>
+  
+  <filter>
+  	<filter-name>AreaFilterB</filter-name>
+  	<filter-class>filter.AreaFilterB</filter-class>
+  </filter>
+  
+  <filter>
+  	<filter-name>AreaFilterC</filter-name>
+  	<filter-class>filter.AreaFilterC</filter-class>
+  </filter>
+  
+  <!-- 配置過濾器 -->
+  <filter-mapping>
+  	<filter-name>AreaFilterC</filter-name>
+  	<url-pattern>/servlet/area</url-pattern>
+  </filter-mapping>
+  
+  <filter-mapping>
+  	<filter-name>AreaFilterB</filter-name>
+  	<url-pattern>/servlet/area</url-pattern>
+  </filter-mapping>
+  
+  <filter-mapping>
+  	<filter-name>AreaFilterA</filter-name>
+  	<url-pattern>/servlet/area</url-pattern>
+  </filter-mapping>
   
 </web-app>
